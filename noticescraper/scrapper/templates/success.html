@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scrape Successful</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        margin: 0;
+        padding: 40px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        width: 100%;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 800px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      h1 {
+        color: #04aa6d;
+        margin-bottom: 20px;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+
+      li {
+        margin: 10px 0;
+        padding: 10px;
+        background-color: #eafaf1;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .image-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .image-gallery img {
+        max-height: 60vh;
+        width: auto;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      a {
+        color: #04aa6d;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        background-color: #ffffff;
+        border: 1px solid #04aa6d;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        margin-top: 20px;
+        display: inline-block;
+      }
+
+      a:hover {
+        background-color: #04aa6d;
+        color: white;
+      }
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div style="position: fixed; top: 0; left: 0">
+        <a href="{% url 'home' %}" style="margin: 20px">Go to Home</a>
+      </div>
+      <h1>Scraping Successful</h1>
+      <div class="image-gallery">
+        {% for image in images %}
+        <img src="{{ image }}" alt="Notice Image" />
+        {% endfor %}
+      </div>
+      <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <footer>
+      <p>This site scrapes the notice from St. Xavier's College website.</p>
+    </footer>
+  </body>
+</html>
