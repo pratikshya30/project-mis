@@ -1,0 +1,4 @@
+EMAIL="your_email"
+EMAIL_PASSWORD="your_password"
+MONGO_URI=
+DRIVER_LOCATION=
